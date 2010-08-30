@@ -1,0 +1,18 @@
+--------------------------------------------------------------------------------
+11/5/2004 version 0.1.0
+
+o Initial release.
+
+--------------------------------------------------------------------------------
+2/4/2005 version 0.1.1
+
+o More efficient closing of file descriptors (Judson Lester).
+o Better randomization between daemonized and spawning process (Judson Lester).
+o Order changed to safefork and exit when exiting parent.
+
+--------------------------------------------------------------------------------
+6/2/2005 version 0.1.2
+
+o Closing all filehandles is now an option and defaults to false.
+o Install now uses setup.rb.
+o Removed unnecessary example program.

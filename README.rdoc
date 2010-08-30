@@ -1,0 +1,52 @@
+== Purpose
+
+Daemonize is a module derived from Perl's Proc::Daemon module. This module
+allows you to easily modify any existing Ruby program to run as a daemon.
+A daemon is a process that runs in the background with no controlling terminal.
+Generally servers (like FTP and HTTP servers) run as daemon processes.
+Note, do not make the mistake that a daemon == server. Converting a program
+to a daemon by hand is a relatively simple process; however, this module will
+save you the effort of repeatedly looking up the procedure, and it will also
+insure that your programs are daemonized in the safest and most correct
+fashion possible.
+
+== Procedure
+
+The Daemonize module does the following:
+
+Forks a child and exits the parent process.
+
+Becomes a session leader (which detaches the program from
+the controlling terminal).
+
+Forks another child process and exits first child. This prevents
+the potential of acquiring a controlling terminal.
+
+Changes the current working directory to "/".
+
+Clears the file creation mask.
+
+Closes file descriptors.
+
+== Example usage
+
+Using the Daemonize module is extremely simple:
+
+    require 'daemonize'
+
+    class TestDaemon
+      include Daemonize
+
+      def initialize
+        daemonize()
+        loop do
+          # do some work here
+        end
+      end
+    end
+
+== Credits
+
+Daemonize was written by Travis Whitton and is based on Perl's
+Proc::Daemonize, which was written by Earl Hood. The above documentation
+is also partially borrowed from the Proc::Daemonize POD documentation.

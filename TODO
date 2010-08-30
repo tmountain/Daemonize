@@ -1,0 +1,4 @@
+Patches are Welcome!
+--------------------------------------------------------------------------------
+o STDOUT/STDERR should go to a log file.
+o Implement IPC between daemonized and spawn process.
